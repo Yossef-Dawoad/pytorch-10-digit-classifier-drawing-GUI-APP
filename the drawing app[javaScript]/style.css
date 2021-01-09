@@ -1,0 +1,11 @@
+*{
+    margin:0;
+    padding:0;
+    
+}
+#canvas-screen{
+
+    width:400px;
+    height: 400px;
+    border: #000000 2px solid;
+}
