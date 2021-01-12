@@ -18,9 +18,9 @@ garr.mouseInputHandler();// asynic
 
 
 
+var label = document.getElementById('lbl');
+var again = document.getElementById('againbtn');
+again.addEventListener('click',function(){location.reload()})
 
 
 
-// let pad = new Paddel(CANVAS_WIDTH, CANVAS_HEIGHT,ctx);
-// pad.width= 60;
-// pad.draw()

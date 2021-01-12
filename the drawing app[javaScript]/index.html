@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
-<body>
-    <center>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-canvas">
+        <!-- <center> -->
         <canvas id="canvas-screen"></canvas>
-    </center>
-</body>
-<script type="module" src="./src/app.js"></script>
-
+        <!-- </center> -->
+      </div>
+      <div class="action">
+        <div class="title">The Digit Classifer:</div>
+        <div class="label" id="lbl">none</div>
+        <div class="btn btn-pred" id="predictbtn">Predict</div>
+        <div class="btn btn-tryagain" id="againbtn">Try again</div>
+      </div>
+      <div class="emp"></div>
+    </div>
+  </body>
+  <script type="module" src="./src/app.js"></script>
 </html>
