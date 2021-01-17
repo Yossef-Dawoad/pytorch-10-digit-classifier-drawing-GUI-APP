@@ -6,20 +6,74 @@
 }
 .main{
     display:grid;
-    grid-template-columns: 600px 1fr;
+    grid-template-columns: 1.1fr 1fr;
     grid-template-rows: 3fr 1fr;
     grid-template-areas:
         "canvas action"
-        "empty  empty";
+        "canvas empty";
     height:100vh;
+    grid-column-gap: 15px;
 
 }
 .empty{
     grid-area: empty;
-    background-color: rgb(202, 0, 0);
     justify-self: stretch;
     align-self: stretch;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 5fr;
+    grid-template-rows:1fr;
+    margin-top: 30px;
+
+
+
 }
+
+
+.radiobtn{
+    width:35px;
+    height:35px;
+    border: 2px solid #aaa;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+}
+#smaller{
+    width:25px;
+    height:25px;
+    margin-top: 6px;
+    justify-self: start;
+}
+#deleter{
+    width:25px;
+    height:25px;
+    margin-top: 6px;
+    margin-left: 10px;
+}
+.radiobtn .checkmark{
+    width: calc(100% - 8px);
+    height: calc(100% - 8px);
+    border-radius: 50%;
+    background: #eee;
+    display:inline-block;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+
+}
+.radiobtn input:checked + .checkmark{
+    opacity: 1;
+}
+.radiobtn input{
+    display: none;
+}
+.deleter{
+    background-color: #f00;
+    border: 1px solid #ddd;
+}
+
+
+
 .action{
     grid-area: action;
     display: grid;
@@ -31,7 +85,7 @@
 .btn-pred{
     height:60px;
     width:250px;
-    background: blue;
+    background:#00f;
     border-radius: 30px;
     grid-column: 1/2;
     grid-row: 4/5;
@@ -42,9 +96,10 @@
     font-weight: 900;
     text-align: center;
     padding-top: 10px;
+    user-select: none;
 
 }
-.btn-tryagain{
+.btn-clear{
     height:60px;
     width:250px;
     background: black;
@@ -52,13 +107,17 @@
     grid-column: 1/2;
     grid-row: 5/6;
     justify-self: start;
-    align-self: end;
+    align-self: center;
     color:white;
     font-size: 28px;
     font-family: Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 500;
     text-align: center;
     padding-top: 10px;
+    user-select: none;
+
+
+
 
 
 }
@@ -83,12 +142,12 @@
 .main-canvas{
     grid-area:canvas;
     justify-self: center;
-    align-self: end;
+    align-self:center;
 }
 #canvas-screen{
     width:500px;
     height: 500px;
-    border: #000000 2px solid;
+    outline: thick solid #00f;
 
 }
 .btn:hover{

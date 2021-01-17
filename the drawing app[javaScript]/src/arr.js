@@ -2,6 +2,7 @@ export default class Arrgrid{
     constructor(dimensions){
         this.dimensions = dimensions
         this.setfillNumber = 0
+        this.inversefillNumber = 1
         this.array  = this.fillWith(0)
     }
     fillWith(fillNumber) {
@@ -43,6 +44,7 @@ export default class Arrgrid{
     mouseInputHandler(){
         let isDown = false;
 
+
         this.canvas.addEventListener('mousedown', _ => {
             // let _ = parseInt(e.offsetX/this.bloc_width);
             // let _ = parseInt(e.offsetY/this.bloc_height);
@@ -54,12 +56,31 @@ export default class Arrgrid{
             this.posX = Math.floor(e.offsetX /this.bloc_width);
             this.posY = Math.floor(e.offsetY / this.bloc_height);
             this.ctx.clearRect(0,0,this.canvas_width,this.canvas_height);
-            console.log([this.posX,this.posY]);
-            this.set_on([this.posY,this.posX],this.setfillNumber)
+
+            var smallR = document.getElementById('s')
+            var pensize = smallR.checked ? 1 : 2;
+            var deleter_b = document.getElementById('deleterb');
+            var deleter_s = document.getElementById('deleters');
+            var delete_Size = deleter_s.checked ? 1 : 2;
+            console.log(delete_Size);
+            if (deleter_b.checked ||deleter_s.checked){
+                this.set_on([this.posY,this.posX],this.inversefillNumber)
+                if(delete_Size == 2){
+                    this.set_on([this.posY+1,this.posX],this.inversefillNumber)
+                    this.set_on([this.posY,this.posX+1],this.inversefillNumber)
+                    this.set_on([this.posY+1,this.posX+1],this.inversefillNumber)
+                }
+            }
+            else{
+                this.set_on([this.posY,this.posX],this.setfillNumber)
+                if(pensize == 2){
+                    this.set_on([this.posY+1,this.posX],this.setfillNumber)
+                    this.set_on([this.posY,this.posX+1],this.setfillNumber)
+                    this.set_on([this.posY+1,this.posX+1],this.setfillNumber)
+                }
+            }
+
             this.draw_on(this.canvas)
-
-
-
 
 
             //code in here
