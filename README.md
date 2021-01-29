@@ -5,7 +5,7 @@ and then connect this with web design(frontend GUI) using eel technology
 to made interactive window btween the user andd the model
 
 ### Required installation 
-you must install pytorch since it the brain of our application see the documentation about that [here](https://pytorch.org/get-started/locally/)
+> you must install pytorch since it the brain of our application see the documentation about that [here](https://pytorch.org/get-started/locally/)
 
 then run on your command-line the following
 ```PowerShell
