@@ -2,16 +2,16 @@ import eel
 import torch
 import matplotlib.pyplot as plt
 
-
-
-
-eel.init('the_drawing_app[GUI]')
-trained_Model_Path = "backendModels/trained_models/digitLinearModel.pth"
-
-
-
 import torch.nn as nn
 import torch.nn.functional as F
+
+
+
+
+trained_Model_Path = "backendModels/trained_models/digit_LinearModel_0.95.pth"
+
+eel.init('frontend_template')
+
 class MNISTModel(nn.Module):
     def __init__(self,input_neurons,hidden_neurons, output):
         super().__init__()
@@ -61,20 +61,19 @@ def evaluate(model,val_loader):
 
 model = torch.load(trained_Model_Path, map_location=torch.device('cpu'))
 
-@eel.expose
+@eel.expose # allow the function to be accessable in javascript
 def make_prediction(imgArr):
     imgArr = torch.FloatTensor(imgArr)
     '''displaying plot of retuning array'''
+    #! DEBUG CODE
     # plt.figure() 
     # plt.imshow(imgArr)
     # plt.show()
+
     imgArr = imgArr.reshape(1,-1)
+    #? print(type(imgArr))
     predicted = model(imgArr)
     predicted_pow, index = torch.max(predicted,axis=1)
-    # print("=="*10)
-    # print(index.item())
-    # print(predicted_pow.item())
-
     return predicted_pow.item(), index.item()
 
 

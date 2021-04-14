@@ -1,20 +1,13 @@
-import Arrgrid from "./arr.js"
+import Arraygrid from "./arr_uptaded.js"
 
 let canvas = document.getElementById("canvas-screen");
-let ctx = canvas.getContext("2d");
-const CANVAS_HEIGHT = canvas.clientHeight;
-const CANVAS_WIDTH = canvas.clientWidth;
-ctx.clearRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT);
 
 
 
 
 
-
-let garr =new Arrgrid([28,28],canvas)
-garr.fillWith(0)
-// garr.set_on([4,4],1)
-garr.draw_on(canvas,"#000");
+let garr =new Arraygrid([10,10])
+garr.draw_on(canvas,"#fff");
 garr.mouseInputHandler();// asynic
 
 
@@ -25,14 +18,14 @@ var clear = document.getElementById('clearbtn');
 
 clear.addEventListener('click',function(){
     garr.fillWith(0);
-    garr.draw_on(canvas,"#000");
-    garr.draw_on(canvas,"#000");//seem to clear the edages of the canvas well
-    garr.draw_on(canvas,"#000");//seem to clear the edages of the canvas well
+    garr.clearall(canvas);
+    console.log(garr)
     label.innerHTML='none';
 })
-//change
+
+
 predbtn.addEventListener('click',function(){
-    // label.innerHTML=0;
+    // console.log(garr)
     eel.make_prediction(garr.array)(function(ret_val){
         console.log(ret_val)
         label.innerHTML= ret_val[1];
