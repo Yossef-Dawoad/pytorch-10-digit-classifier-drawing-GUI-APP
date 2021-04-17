@@ -1,18 +1,36 @@
-# pytorch-10-digit-drawing-classifier-GUI[APP]
-train deep learning model to classifying the first 10 digits 
-and then connect this with web design using eel technology 
+# pytorch-10-digit-classifier-drawing-GUI
 
-**Note**: [Required] to run the drawing app folder USE IT with servers 
- CUZ Exports/Imports in JS only work on servers, they DO NOT work on local machines
-[use] live sever extension and should be good
+training deep learning model to classify the first 10 digits 
+and then connect this with web design(frontend GUI) using eel technology 
+to make an interactive window between the user and the model
 
-### > in the next releases we will have the Next:
- > - frist alpha release
- > - implementation of using the trained model to actuall 
- testing on unseen data [ones you likelly to draw on the canvas]
- > - add choice to have different drawing pen sizes
- > - then after all of that working fine the connection between the frontend 
- and backend will be established and they talk to eachother ^_^
+### Required installation
+
+
+> you must install `pytorch` since it the brain of our application see the documentation about that [here](https://pytorch.org/get-started/locally/)
+
+then run on your command-line the following
+```PowerShell
+pip install eel 
+```
+
+### RUNNING The Magic
+
+
+in the directory of the app folder run this on your command-line 
+```PowerShell
+python main.py
+```
+
+###  in the next releases we will have the Next:
+
+
+
+ 
+ > - implementing more accurate model improving the accuracy of the current model
+ > - adding an option to select between those models
+ > - improving the Ui little bt little 
+ > - improving the performance of the app
   
 
 
