@@ -8,7 +8,7 @@ import torch.nn.functional as F
 
 
 
-trained_Model_Path = "backendModels/trained_models/digit_LinearModel_0.95.pth"
+
 
 eel.init('frontend_template')
 
@@ -59,19 +59,28 @@ def evaluate(model,val_loader):
     outputs = [model.validation_step(btch) for btch in val_loader]
     return model.validation_epoch_end(outputs)
 
+
+
+trained_Model_Path = "backendModels/trained_models/digitLinearModel.pth"
 model = torch.load(trained_Model_Path, map_location=torch.device('cpu'))
+
+
+
+
+
 
 @eel.expose # allow the function to be accessable in javascript
 def make_prediction(imgArr):
     imgArr = torch.FloatTensor(imgArr)
-    '''displaying plot of retuning array'''
-    #! DEBUG CODE
+    
+    #! DEBUG CODE # displaying plot of retuning array
     # plt.figure() 
     # plt.imshow(imgArr)
     # plt.show()
 
-    imgArr = imgArr.reshape(1,-1)
-    #? print(type(imgArr))
+    imgArr = imgArr.reshape(1,-1)  
+    # print(imgArr.shape)   #! DEBUG CODE
+    # print(imgArr.dtype)   #! DEBUG CODE   
     predicted = model(imgArr)
     predicted_pow, index = torch.max(predicted,axis=1)
     return predicted_pow.item(), index.item()
